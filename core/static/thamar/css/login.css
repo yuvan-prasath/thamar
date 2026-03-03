@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.custom-navbar {
+    background-color: #1f3c88; /* deep blue */
+    padding: 12px 0;
+}
+::placeholder{
+    font-family: 'poppins';
+    color: white;
+    
+}
+*{
+  padding: 0;
+  margin: 0;
+}
+
+html,body{
+  margin: 0;
+  padding: 0;
+}
+/* Logo */
+.logo-text {
+    color: #ffffff;
+    font-weight: 700;
+    
+    font-size: 22px;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.logo-text:hover {
+    color: #ffffff;
+}
+
+/* Nav links */
+.nav-links .nav-link {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 17px;
+    font-family: 'poppins';
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-links .nav-link:hover {
+    color: #9effb8; /* soft green hover */
+}
+
+/* Login button */
+.login-btn {
+    background-color: #2ecc71;
+    color: #000000;
+    font-weight: 600;
+    padding: 8px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #27ae60;
+    color: #000000;
+}
+
+/* Navbar toggler icon color */
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* Mobile spacing */
+@media (max-width: 991px) {
+    .login-btn {
+        margin-top: 12px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links .nav-link {
+        padding: 10px 0;
+    }
+}
+
+
+
+.bg-purple {
+    background-color: #000; /* match your image purple */
+    margin: 0 !important;
+}
+footer {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+
+footer a:hover {
+    text-decoration: underline;
+}
+#findfooter{
+  text-decoration: none !important;
+  color: #000;
+  background-color: #6c63ff;
+  transition: 1s !important;
+}
+#findfooter:hover{
+  transform: scale(1.05) !important;
+  color: #6c63ff;
+  background-color: #000;
+  border: 2px solid #6c63ff;
+}
+footer h6 {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+footer hr {
+    opacity: 0.3;
+}
+footer hr {
+    margin-bottom: 0 !important;
+}
+footer .col-4 ul li a{
+  transition: 1s !important;
+}
+footer .col-md-3 a i{
+  transition: 1s;
+}
+
+footer .col-md-3 a i:hover{
+  color: #6c63ff;
+  font-size: 105%;
+}
+footer .col-4 ul li a:hover{
+font-size: 105%;
+color: #6c63ff !important;
+}
+footer .btn-light i {
+    font-size: 1.2rem;
+}
+
+
+
+
+/* Full screen wrapper */
+.thamar-login-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 90px;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Background image layer */
+.thamar-login-bg {
+    position: absolute;
+    inset: 0;
+    background: url('/static/thamar/images/loginbg.jpg') center/cover no-repeat;
+    
+    transform: scale(1.1);
+}
+.profile-wrapper {
+    position: relative;
+}
+
+.profile-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    background-color: #6c63ff;
+    color: white;
+    font-weight: 600;
+    font-family: 'Poppins';
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.profile-btn:hover {
+    background-color: #574fd6;
+}
+
+.profile-dropdown {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background-color: white;
+    min-width: 150px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.profile-dropdown a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    font-family: 'Poppins';
+    transition: 0.2s;
+}
+
+.profile-dropdown a:hover {
+    background-color: #f3f3f3;
+}
+
+
+/* Glass overlay */
+.thamar-login-glass {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Login card */
+.thamar-login-box {
+    width: 100%;
+    max-width: 620px;
+    padding: 40px 35px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(11px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    color: #fff;
+    text-align: center;
+}
+
+/* Title */
+.thamar-login-title {
+    font-size: 28px;
+    font-weight: 700;
+    font-family: 'poppins';
+    color: white;
+    text-shadow: 0px 0px 6px black;
+    margin-bottom: 8px;
+}
+
+/* Quote */
+.thamar-login-quote {
+    font-size: 14px;
+    opacity: 0.9;
+    font-family: 'poppins';
+    color: white;
+    text-shadow: 0px 0px 4px black;
+    margin-bottom: 25px;
+}
+
+/* Input fields */
+.thamar-field {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.thamar-field input {
+    width: 100%;
+    padding: 14px 44px 14px 16px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.25);
+    color: #fff;
+}
+
+.thamar-field input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Password toggle */
+.thamar-toggle-pass {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+/* Button */
+.thamar-login-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, #ff7aa2, #ff4d7e);
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.thamar-login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 77, 126, 0.4);
+}
+
+/* Footer */
+.thamar-login-footer {
+    margin-top: 16px;
+    font-family: 'poppins';
+    color: white;
+    font-size: 14px;
+}
+
+.thamar-login-footer a {
+    color: #fff;
+    text-decoration: underline;
+}

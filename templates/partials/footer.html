@@ -1,0 +1,128 @@
+{%load static%}
+<footer class="bg-purple text-white pt-5 position-relative">
+  <div class="container">
+    <!-- Top CTA Section -->
+    <div class="row mb-4">
+      <div class="col-md-8">
+        <h5 class="mb-0">Because Your Loved Ones Deserve Trusted Care &#x2661;</h5>
+      </div>
+      <div class="col-md-4 text-md-end mt-3 mt-md-0">
+  <a href="#" class="btn btn-dark" id="findfooter">View Help Requests</a>
+</div>
+    </div>
+
+    <hr class="border-light">
+    <div class="row">
+      <!-- Logo and Placeholder -->
+      <div class="col-md-3 mb-4">
+        <img src="{% static 'thamar/images/logo1.png' %}" alt="Logo" class="img-fluid mb-3" style="max-height:50px;">
+        <p>© 2025 Thamar. All rights reserved.</p>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="col-md-6 mb-4">
+        <div class="row">
+          
+
+{% if user.is_authenticated %}
+    {% if user.profile.role == "elder" %}
+         <div class="col-4">
+            <h6>Elder Services</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white text-decoration-none">Request Assistance</a></li>
+              <li><a href="#" class="text-white text-decoration-none">How It Works</a></li>
+              <li><a href="#" class="text-white text-decoration-none">Safety & Trust</a></li>
+            </ul>
+          </div>
+          <div class="col-4">
+            <h6>Care & Support</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white text-decoration-none">My Care Plan</a></li>
+              <li><a href="#" class="text-white text-decoration-none">Monitoring Overview</a></li>
+              <li><a href="#" class="text-white text-decoration-none">Contact Support</a></li>
+            </ul>
+          </div>
+    {% elif user.profile.role == "volunteer" %}
+       <div class="col-4">
+  <h6>Volunteer Services</h6>
+  <ul class="list-unstyled">
+    <li><a href="#" class="text-white text-decoration-none">View Help Requests</a></li>
+    <li><a href="#" class="text-white text-decoration-none">How Volunteering Works</a></li>
+    <li><a href="#" class="text-white text-decoration-none">Safety Guidelines</a></li>
+  </ul>
+</div>
+
+<div class="col-4">
+  <h6>Assignments & Activity</h6>
+  <ul class="list-unstyled">
+    <li><a href="#" class="text-white text-decoration-none">My Assignments</a></li>
+    <li><a href="#" class="text-white text-decoration-none">Visit History</a></li>
+    <li><a href="#" class="text-white text-decoration-none">Performance & Feedback</a></li>
+  </ul>
+</div>
+    {% endif %}
+{% else %}
+<div class="col-4">
+            <h6>Elder Services</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white text-decoration-none">Request Assistance</a></li>
+              <li><a href="#" class="text-white text-decoration-none">How It Works</a></li>
+              <li><a href="#" class="text-white text-decoration-none">Safety & Trust</a></li>
+            </ul>
+          </div>
+          <div class="col-4">
+            <h6>Volunteers</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white text-decoration-none">Become a Volunteer</a></li>
+              <li><a href="#" class="text-white text-decoration-none">Verification Process</a></li>
+              <li><a href="#" class="text-white text-decoration-none">Volunteer Guidelines</a></li>
+            </ul>
+          </div>
+{% endif %}
+
+
+
+
+
+
+
+
+          <div class="col-4">
+            <h6>About Thamar</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white text-decoration-none">About Thamar</a></li>
+              <li><a href="#" class="text-white text-decoration-none">FAQs</a></li>
+              <li><a href="#" class="text-white text-decoration-none">Contact Support</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Media & CTA -->
+      <div class="col-md-3 mb-4 text-md-end">
+        <h6>Follow Us</h6>
+        <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="text-white me-2"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="text-white me-2"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="text-white"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+
+    <hr class="border-light">
+
+    <!-- Bottom Legal -->
+    <div class="row">
+      <div class="col-md-12 text-center small">
+        <a href="#" class="text-white text-decoration-none me-3">Cookies Policy</a>
+        <a href="#" class="text-white text-decoration-none me-3">Legal Terms</a>
+        <a href="#" class="text-white text-decoration-none">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll to Top -->
+  <a href="#" class="btn btn-light position-absolute bottom-0 start-0 m-3">
+    <i class="bi bi-arrow-up"></i>
+  </a>
+</footer>
+

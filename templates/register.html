@@ -1,0 +1,263 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'thamar/css/register.css'%}?v=2">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="icon" type="image/png" href="{% static 'thamar/images/titlelogo.png' %}">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+   <title> {%block title %}Registeration Page{% endblock %}</title>
+</head>
+<body>
+    {%include 'partials/navbar.html'%}
+<section class="thamar-register-wrap">
+    <video class="thamar-bg-video" autoplay muted loop playsinline>
+    <source src="/static/thamar/videos/regbgvid.mp4" type="video/mp4">
+</video>
+
+    <div class="thamar-register-bg"></div>
+
+    <div class="thamar-register-glass">
+
+        <!-- Top Role Selector -->
+        <div class="thamar-role-top">
+            <button type="button" class="thamar-role-btn active" data-role="elder">🧓 I’m an Elder</button>
+            <button type="button" class="thamar-role-btn" data-role="volunteer">🤝 I’m a Volunteer</button>
+            
+        </div>
+
+        <!-- Forms Split -->
+        <div class="thamar-register-body">
+            <form method="post" class="thamar-register-form" action="{% url 'accounts:register' %}">
+                {% csrf_token %}
+<input type="hidden" name="role" id="roleInput" value="elder">
+                <!-- Left: Common Info -->
+                <div class="thamar-register-col">
+                    <h4>Basic Information</h4>
+
+                    <div class="thamar-field"><input type="text" name="full_name" placeholder="Full Name" required></div>
+                    <div class="thamar-field"><input type="text" name="username" placeholder="Username" required></div>
+                    <div class="thamar-field"><input type="email" name="email" placeholder="Email" required></div>
+                    <div class="thamar-field"><input type="tel" name="phone" placeholder="Phone Number" required></div>
+
+                    <div class="thamar-field"><input type="text" name="address_line1" placeholder="Address Line 1" required></div>
+                    <div class="thamar-field"><input type="text" name="address_line2" placeholder="Address Line 2"></div>
+                    <div class="thamar-field"><input type="text" name="city" placeholder="City" required></div>
+                    <div class="thamar-field"><input type="text" name="state" placeholder="State" required></div>
+                    <div class="thamar-field"><input type="text" name="pincode" placeholder="Pincode" required></div>
+
+                    <div class="thamar-field">
+                        <select name="preferred_language" required>
+                            <option value="">Preferred Language</option>
+                            <option>Tamil</option>
+                            <option>kannada</option>
+                            <option>Hindi</option>
+                            <option>English</option>
+                        </select>
+                    </div>
+
+                    <div class="thamar-field thamar-password-field">
+                        <input type="password" id="regPassword" name="password" placeholder="Password" required>
+                        <span class="thamar-toggle-pass" onclick="toggleRegPassword()">👁</span>
+                    </div>
+                </div>
+
+                <!-- Right: Role Specific -->
+                <div class="thamar-register-col">
+
+                    <!-- Elder Fields -->
+                    <div class="thamar-elder-fields">
+                        <h4>Elder Details</h4>
+
+                         <div class="thamar-field">
+        <input type="date" name="dob" placeholder="Date of Birth" required>
+    </div>
+
+                        
+
+                        <div class="thamar-field">
+                            <input type="text" name="emergency_contact_name" placeholder="Emergency Contact Name">
+                        </div>
+                        <div class="thamar-field">
+                            <input type="tel" name="emergency_contact_phone" placeholder="Emergency Contact Phone">
+                        </div>
+
+                        <div class="thamar-checkbox-group">
+                            <label>Health Support Needed</label>
+                            <label><input type="checkbox" id="checkboxoutline" name="health_support" value="medication"> Medication Reminders</label>
+                            <label><input type="checkbox" id="checkboxoutline" name="health_support" value="mobility"> Mobility Assistance</label>
+                            <label><input type="checkbox" id="checkboxoutline" name="health_support" value="companionship"> Companionship</label>
+                            <label><input type="checkbox" id="checkboxoutline" name="health_support" value="appointments"> Doctor Appointments</label>
+                        </div>
+
+                        <div class="thamar-field">
+                            <select name="communication_mode">
+                                <option value="">Preferred Communication</option>
+                                <option>Call</option>
+                                <option>WhatsApp</option>
+                                <option>In-App Chat</option>
+                            </select>
+                        </div>
+                        <div class="thamar-terms-line">
+    <label>
+        <input type="checkbox" name="elder_terms" id="elderTermsCheck" required>
+        I agree to the <a href="javascript:void(0)" onclick="openTerms('elder')">Terms & Conditions for Elders</a>
+    </label>
+</div>
+
+                    </div>
+
+                    <!-- Volunteer Fields -->
+                    <div class="thamar-volunteer-fields" style="display:none;">
+                        <h4>Volunteer Details</h4>
+
+                         <div class="thamar-field">
+        <input type="date" name="dob" placeholder="Date of Birth" required>
+    </div>
+
+                        <div class="thamar-checkbox-group">
+                            <label>Skills</label>
+                            <label><input type="checkbox" id="checkboxoutline" name="skills" value="medical"> Medical</label>
+                            <label><input type="checkbox" id="checkboxoutline" name="skills" value="companionship"> Companionship</label>
+                            <label><input type="checkbox" id="checkboxoutline" name="skills" value="errands"> Errands</label>
+                            <label><input type="checkbox" id="checkboxoutline" name="skills" value="tech"> Tech Help</label>
+                        </div>
+
+                        <div class="thamar-checkbox-group">
+                            <label>Availability</label>
+                            <label><input type="checkbox" id="checkboxoutline" name="availability" value="morning"> Morning</label>
+                            <label><input type="checkbox" id="checkboxoutline" name="availability" value="evening"> Evening</label>
+                            <label><input type="checkbox" id="checkboxoutline" name="availability" value="weekend"> Weekends</label>
+                        </div>
+
+                        <div class="thamar-field">
+                            <select name="experience_level">
+                                <option value="">Experience Level</option>
+                                <option>Beginner</option>
+                                <option>Intermediate</option>
+                                <option>Experienced</option>
+                            </select>
+                        </div>
+                        <div class="thamar-terms-line">
+    <label>
+        <input type="checkbox" name="volunteer_terms" id="volunteerTermsCheck" required>
+        I agree to the <a href="javascript:void(0)" onclick="openTerms('volunteer')">Terms & Conditions for Volunteers</a>
+    </label>
+</div>
+
+                    </div>
+
+                    <button type="submit" class="thamar-register-btn">Create Account</button>
+                </div>
+            </form>
+            <div class="thamar-terms-modal" id="termsModal">
+    <div class="thamar-terms-box">
+        <h4 id="termsTitle">Terms & Conditions</h4>
+
+        <div class="thamar-terms-content" id="termsContent">
+            <!-- Dynamic content injected here -->
+        </div>
+
+        <div class="thamar-terms-actions">
+            <button type="button" onclick="closeTerms()">Close</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function openTerms(role) {
+    const modal = document.getElementById('termsModal');
+    const title = document.getElementById('termsTitle');
+    const content = document.getElementById('termsContent');
+
+    if (role === 'elder') {
+        title.innerText = "Terms & Conditions – Elders";
+        content.innerHTML = `
+            <p>• Thamar provides platform-based assistance, not medical diagnosis.</p>
+            <p>• Elders must provide accurate personal and emergency contact information.</p>
+            <p>• Volunteers are not medical professionals unless explicitly verified.</p>
+            <p>• Your data will be used to personalize care and matching.</p>
+            <p>• You can edit or remove your information anytime.</p>
+            <p>• Thamar is not liable for actions outside the platform.</p>
+        `;
+    } else {
+        title.innerText = "Terms & Conditions – Volunteers";
+        content.innerHTML = `
+            <p>• Volunteers agree to behave respectfully and ethically.</p>
+            <p>• No misuse of elder data or contact details.</p>
+            <p>• Thamar does not guarantee task availability.</p>
+            <p>• Any misconduct can lead to permanent suspension.</p>
+            <p>• You are responsible for your actions during volunteering.</p>
+            <p>• Thamar may record activity logs for safety and quality.</p>
+        `;
+    }
+
+    modal.style.display = "flex";
+}
+
+function closeTerms() {
+    document.getElementById('termsModal').style.display = "none";
+}
+</script>
+
+        </div>
+    </div>
+</section>
+
+<script>
+const roleBtns = document.querySelectorAll('.thamar-role-btn');
+const roleInput = document.getElementById('roleInput');
+const elderBox = document.querySelector('.thamar-elder-fields');
+const volunteerBox = document.querySelector('.thamar-volunteer-fields');
+
+roleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        roleBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const role = btn.dataset.role;
+        roleInput.value = role;
+
+        elderBox.style.display = role === 'elder' ? 'block' : 'none';
+        volunteerBox.style.display = role === 'volunteer' ? 'block' : 'none';
+    });
+});
+
+function toggleRegPassword() {
+    const input = document.getElementById("regPassword");
+    input.type = input.type === "password" ? "text" : "password";
+}
+</script>
+
+<script>
+function updateTermsRequirement(role) {
+    document.getElementById("elderTermsCheck").required = role === "elder";
+    document.getElementById("volunteerTermsCheck").required = role === "volunteer";
+}
+
+roleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const role = btn.dataset.role;
+        roleInput.value = role;
+
+        updateTermsRequirement(role);
+
+        elderBox.style.display = role === 'elder' ? 'block' : 'none';
+        volunteerBox.style.display = role === 'volunteer' ? 'block' : 'none';
+    });
+});
+
+// default
+updateTermsRequirement("elder");
+</script>
+
+
+{%include 'partials/footer.html'%}
+</body></html>

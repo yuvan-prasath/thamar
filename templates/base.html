@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'thamar/css/base.css'%}?v=7">
+
+    {%block extracss%}{%endblock%}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="icon" type="image/png" href="{% static 'thamar/images/titlelogo.png' %}">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+   <title> {%block title %}Base file{% endblock %}</title>
+</head>
+<body>
+    {%include 'partials/navbar.html'%}
+    <section class="hero-section d-flex align-items-center">
+  <div class="container text-center hero-content">
+    <h1 class="hero-title">AI-Powered Assistance for Elders, Built on Trust & Safety</h1>
+    <p class="hero-subtitle">Connecting elders with verified volunteers using intelligent matching and real-time safety monitoring.</p>
+   <div class="d-flex justify-content-center gap-3 mt-3">
+
+    {% if user.is_authenticated %}
+
+        {% if user.profile.role == "elder" %}
+
+            <a href="{%url 'core:elder_request'%}" class="btn btn-primary "  >
+                Request Assistance
+            </a>
+
+            <a href="" class="btn btn-primary"  id="herobutton">
+                My Requests
+            </a>
+
+        {% elif user.profile.role == "volunteer" %}
+
+            <a href="" class="btn btn-primary"  >
+                View Help Requests
+            </a>
+
+            <a href="" class="btn btn-primary"  id="herobutton">
+                My Assignments
+            </a>
+
+        {% endif %}
+
+    {% else %}
+
+        <a href="{% url 'core:login' %}" class="btn btn-primary btn-lg"  >
+            Get Help Now
+        </a>
+
+        <a href="{% url 'accounts:register' %}" class="btn btn-primary"  id="herobutton">
+            Become a Volunteer
+        </a>
+
+    {% endif %}
+
+</div>
+
+  </div>
+</section>
+
+{% if user.is_authenticated %}
+    {% if user.profile.role == "elder" %}
+        {% include "elder/home.html" %}
+    {% elif user.profile.role == "volunteer" %}
+        {% include "volunteer/home.html" %}
+    {% endif %}
+{% else %}
+    {%block content%}{%endblock%}
+{% endif %}
+
+
+
+
+{% if user.is_authenticated %}
+    {% if user.profile.role == "elder" %}
+         {% include "elder/keyfeatures.html" %}
+    {% elif user.profile.role == "volunteer" %}
+         {% include "volunteer/key_features.html" %}
+    {% endif %}
+{% else %}
+  {%block key%}{%endblock%}
+{% endif %}
+
+
+
+
+{% if user.is_authenticated %}
+    {% if user.profile.role == "elder" %}
+         {% include "elder/elder_saftey_section.html" %}
+    {% elif user.profile.role == "volunteer" %}
+         {% include "volunteer/volunteer_saftey_section.html" %}
+    {% endif %}
+{% else %}
+  {%block safety%}{%endblock%}
+{% endif %}
+
+{% if user.is_authenticated %}
+    {% if user.profile.role == "elder" %}
+         {% include "elder/elder_peace.html" %}
+    {% elif user.profile.role == "volunteer" %}
+       {% include "volunteer/volunteer_peace.html" %}
+    {% endif %}
+{% else %}
+{%block test%}{%endblock%}
+{% endif %}
+
+
+
+{%include 'partials/footer.html'%}
+
+</body>
+</html>

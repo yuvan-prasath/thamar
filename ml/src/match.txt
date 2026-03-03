@@ -1,0 +1,50 @@
+
+def calculate_match_score(volunteer,elder):
+    trust_score=predict_trust_score(input_data)
+    elder_risk=risk_predict    
+    trust_component = normalize(trust_score, 0, 100)
+    distance_component = 1 - normalize(volunteer["distance_km"], 0, 20)
+    availability_component = 1.0 if volunteer["availability"] else 0.0
+    experience_component = normalize(volunteer["completed_tasks"], 0, 200)
+
+    match_score = (
+        MATCHING_WEIGHTS["trust_score"] * trust_component +
+        MATCHING_WEIGHTS["distance"] * distance_component +
+        MATCHING_WEIGHTS["availability"] * availability_component +
+        MATCHING_WEIGHTS["experience"] * experience_component
+    )
+
+    return round(match_score, 3),elder_risk
+
+def rank_volunteers(volunteers, elder):
+    ranked_list = []
+    for v in volunteers:
+        score = calculate_match_score(v, elder)
+        if risk_predict==2 and v["trust_score"]<80:
+            continue
+        ranked_list.append({
+            "volunteer_id": v["id"],
+            "match_score": score,
+            "trust_score": v["trust_score"]
+        })
+    ranked_list.sort(key=lambda x: x["match_score"], reverse=True)
+    return ranked_list
+elder_request = {
+    "age": 85,
+    "chronic_disease": 1,
+    "living_alone": 1,
+    "mobility_issue": 1,
+    "recent_fall": 1,
+    "emergency_visits": 4
+}
+volunteers = [
+    {"id": 1, "trust_score": 88.6, "distance_km": 2.5, "availability": True,  "completed_tasks": 40},
+    {"id": 2, "trust_score": 72.1, "distance_km": 5, "availability": True,  "completed_tasks": 20},
+    {"id": 3, "trust_score": 90.4, "distance_km": 6.0, "availability": False, "completed_tasks": 70}
+]
+ranked_volunteers = rank_volunteers(volunteers, elder_request)
+print("Ranked Volunteers:")
+for r in ranked_volunteers:
+    print(r)
+
+

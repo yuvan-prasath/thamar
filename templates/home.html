@@ -1,0 +1,665 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block title %}home page file{% endblock %}
+{% block content %}
+
+<section class="how-it-works py-5">
+  <div class="container">
+    <h2 class="section-title mb-5">HOW IT WORKS?</h2>
+
+    <div class="row g-4 justify-content-center">
+      <div class="col-lg-4 col-md-6">
+        <div class="work-card h-100">
+          <img src="{%static 'thamar/images/step1.jpg'%}" class="card-img-top" alt="Step 1">
+          <div class="card-body">
+            <h6 class="step-heading">Step 1:Register & Verify</h6>
+            <p class="step-desc">
+              Secure Registration With Verified Identities To Ensure Safety And Trust.
+            </p>
+            <ul>
+              <li>Simple Elder Signup</li>
+              <li>ID-Verified Volunteers</li>
+              <li>Admin Approval</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="work-card h-100">
+          <img src="{%static 'thamar/images/step2.jpg'%}" class="card-img-top" alt="Step 2">
+          <div class="card-body">
+            <h6 class="step-heading">Step 2:AI-Based Matching</h6>
+            <p class="step-desc">
+              AI Intelligently Assigns The Safest And Most Suitable Volunteer.
+            </p>
+            <ul>
+              <li>Trust Score Analysis</li>
+              <li>Availability-Based Matching</li>
+              <li>Risk-Aware Selection</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="work-card h-100">
+          <img src="{%static 'thamar/images/step3.jpg'%}" class="card-img-top" alt="Step 3">
+          <div class="card-body">
+            <h6 class="step-heading">Step 3: Safe Assistance</h6>
+            <p class="step-desc">
+              Assistance Delivered With Real-Time Monitoring And Safety Controls.
+            </p>
+            <ul>
+              <li>OTP Check-In / Check-Out</li>
+              <li>SOS Emergency Support</li>
+              <li>Feedback & Trust Update</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>{%endblock%}
+{%block key%}
+<section class="key-features py-5">
+  <div class="container text-center">
+
+    <h2 class="features-title mb-2">Key Features</h2>
+    <p class="features-subtitle mb-5">
+      Smart assistance built on trust, safety, and intelligence.
+    </p>
+
+    <div class="row g-4">
+
+      <div class="col-lg-4 col-md-6">
+        <div class="feature-card h-100" >
+          <div class="feature-icon">
+            <img width="96" height="96" src="https://img.icons8.com/fluency/96/ai-agent.png" alt="ai-agent"/>
+          </div>
+          <h5>AI Volunteer Matching</h5>
+          <p>Safely assigns the best volunteer.</p>
+        </div>
+      </div>
+
+
+      <div class="col-lg-4 col-md-6">
+        <div class="feature-card h-100">
+          <div class="feature-icon">
+            <img width="100" height="100" src="https://img.icons8.com/stickers/100/trust.png" alt="trust"/>
+          </div>
+          <h5>Trust Score System</h5>
+          <p>Dynamic trust ratings based on feedback.</p>
+        </div>
+      </div>
+
+
+      <div class="col-lg-4 col-md-6">
+        <div class="feature-card h-100">
+          <div class="feature-icon">
+           <img width="100" height="100" src="https://img.icons8.com/stickers/100/verified-badge.png" alt="verified-badge"/>
+          </div>
+          <h5>Verified Volunteers</h5>
+          <p>ID-verified and approved helpers.</p>
+        </div>
+      </div>
+
+
+      <div class="col-lg-4 col-md-6">
+        <div class="feature-card h-100">
+          <div class="feature-icon">
+            <img width="64" height="64" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-sos-emergency-service-flaticons-lineal-color-flat-icons.png" alt="external-sos-emergency-service-flaticons-lineal-color-flat-icons"/>
+          </div>
+          <h5>SOS Emergency Support</h5>
+          <p>Instant alerts in critical situations.</p>
+        </div>
+      </div>
+
+
+      <div class="col-lg-4 col-md-6">
+        <div class="feature-card h-100">
+          <div class="feature-icon">
+           <img width="100" height="100" src="https://img.icons8.com/scribby/100/high-risk.png" alt="high-risk"/>
+          </div>
+          <h5>Complaint & Risk Detection</h5>
+          <p>AI-powered risk and complaint analysis.</p>
+        </div>
+      </div>
+
+
+      <div class="col-lg-4 col-md-6">
+        <div class="feature-card h-100">
+          <div class="feature-icon">
+           <img width="96" height="96" src="https://img.icons8.com/fluency/96/control-panel.png" alt="control-panel"/>
+          </div>
+          <h5>Admin Dashboard</h5>
+          <p>Real-time monitoring & analytics.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{%endblock%}
+{%block safety%}
+<section class="elder-section">
+
+    <div class="parent">
+
+        <!-- LEFT SIDE -->
+        <div class="left-side">
+
+            <div class="hero-heading">
+                <h1>Compassionate Care. Intelligent Protection.&#9825;</h1>
+                <p>
+                    Thamar combines trusted human support with AI-powered monitoring 
+                    to ensure your safety, comfort, and peace of mind.
+                </p>
+            </div>
+
+            <div class="video-wrapper">
+                <video controls muted playsinline>
+                    <source src="{% static 'thamar/images/singari.mp4' %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="right-side">
+
+            <div class="text-block">
+                <h3>How We Protect You</h3>
+                <p>
+                    Our intelligent risk assessment system continuously monitors
+                    mobility patterns, fall risks, emergency history,
+                    medication adherence, and chronic conditions.
+                </p>
+                <p>
+                    AI-driven alerts instantly notify our care team
+                    when anomalies are detected, ensuring timely
+                    intervention before issues escalate.
+                </p>
+            </div>
+
+            <div class="text-block">
+                <h3>Real-Time Monitoring</h3>
+                <p>
+                    Continuous behavioral analysis helps identify
+                    subtle changes in daily activity levels,
+                    sleep cycles, and physical movement.
+                </p>
+                <p>
+                    This proactive intelligence enables preventive
+                    care rather than reactive response.
+                </p>
+            </div>
+
+            <div class="text-block">
+                <h3>Built on Trust</h3>
+                <p>
+                    Every support member is identity-verified and
+                    background-checked to guarantee reliability.
+                </p>
+                <p>
+                    Transparency, accountability, and compassion
+                    define every interaction within the Thamar
+                    care network.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const video = document.querySelector(".video-wrapper video");
+
+    if (!video) return;
+
+    // Ensure muted for autoplay policy
+    video.muted = true;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                video.play().catch(error => {
+                    console.log("Autoplay prevented:", error);
+                });
+            } else {
+                video.pause();
+            }
+        });
+    }, {
+        threshold: 0.6  // 60% visible before playing
+    });
+
+    observer.observe(video);
+
+});
+</script>
+
+{%endblock%}
+{%block test%}
+<div class="testimonials-section">
+  <!-- Section Heading -->
+  <div class="testimonials-header text-center">
+    <h2 class="testimonials-title">What Our Users Say</h2>
+    <p class="testimonials-desc">Hear from families who trust Thamar for safe and reliable elder care.</p>
+  </div>
+
+  <!-- Testimonial Slider -->
+  <div class="testimonial-slider">
+    <div class="testimonial-track">
+
+      <!-- SET 1 -->
+      <div class="testimonial-set">
+
+        <!-- Card 1 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Arun Kumar</span>
+          </div>
+          <p class="testimonial-text">
+            "Thamar has completely changed how we look after my father. The volunteers are verified, and the real-time monitoring makes sure he is always safe. The transparency gives our family complete peace of mind. Highly recommended for anyone seeking elder care assistance in a safe and reliable way."
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Karthik Ramesh</span>
+          </div>
+          <p class="testimonial-text">
+            "The AI-powered features of Thamar make elder care effortless. From automatic risk flagging to check-in tracking, I feel confident leaving my mother in their care. The volunteer profiles are verified, and I can always see activity logs. This system makes us feel secure and well-informed at all times."
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Vikram Selvan</span>
+          </div>
+          <p class="testimonial-text">
+            "I am very impressed by Thamar’s complaint-triggered suspension feature. Any issue with volunteers is immediately addressed, which gives us confidence. The UI is simple, and the timeline of volunteer activity is very clear. It truly brings safety and convenience to elder care in a single platform."
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Mani Prakash</span>
+          </div>
+          <p class="testimonial-text">
+            "My parents love using Thamar! The verified volunteers, location tracking, and real-time monitoring all make the experience safe and reassuring. The AI automatically flags potential risks, which shows the system is very intelligent and proactive. It’s perfect for families who care about elder safety."
+          </p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Pranav Kumar</span>
+          </div>
+          <p class="testimonial-text">
+            "Thamar is an outstanding platform. The AI-assisted volunteer matching ensures my father has trustworthy caregivers. I particularly like the low trust-score alerts and the check-in/check-out tracking. It’s easy to use, reliable, and gives us peace of mind every day."
+          </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Ramesh Kumar</span>
+          </div>
+          <p class="testimonial-text">
+            "We have tried multiple elder care apps, but Thamar stands out with its safety features. The AI identifies any suspicious activity immediately, and the verified volunteer system works flawlessly. It has completely changed the way we monitor and support our elderly family members."
+          </p>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Suresh Selvan</span>
+          </div>
+          <p class="testimonial-text">
+            "Thamar provides complete confidence for families. The timeline view, complaint management, and real-time monitoring make it easy to track volunteer activity. My mother feels cared for, and I know that the system automatically flags any irregularities. Highly reliable and safe."
+          </p>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Arvind Kumar</span>
+          </div>
+          <p class="testimonial-text">
+            "I am impressed by how Thamar balances technology with human care. The volunteers are thoroughly verified, and the system ensures safety through continuous monitoring. Any complaint triggers immediate action. We feel completely secure and supported."
+          </p>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Hari Prakash</span>
+          </div>
+          <p class="testimonial-text">
+            "Thamar makes elder care stress-free. The volunteer safety features, real-time logs, and AI risk detection are remarkable. My father enjoys the interaction with volunteers, and I love that everything is tracked securely and transparently."
+          </p>
+        </div>
+
+        <!-- Card 10 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Rajesh Kumar</span>
+          </div>
+          <p class="testimonial-text">
+            "The system is user-friendly and very safe. From verified ID checks to complaint-triggered suspension, Thamar covers all aspects of elder care. I highly recommend it to families who want peace of mind while ensuring their elders are cared for responsibly."
+          </p>
+        </div>
+
+        <!-- Card 11 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Kumar Arul</span>
+          </div>
+          <p class="testimonial-text">
+            "Thamar’s AI assistant is excellent. It continuously monitors volunteers and elders, and flags any risk instantly. The verified volunteer system and check-in tracking give us complete confidence. It’s the perfect solution for elder care."
+          </p>
+        </div>
+
+        <!-- Card 12 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Vimal Selvan</span>
+          </div>
+          <p class="testimonial-text">
+            "We feel safe and informed with Thamar. The volunteer tracking, timeline, and AI notifications are incredibly helpful. Our elders are happy, and we can rely on the system completely for their safety and wellbeing."
+          </p>
+        </div>
+
+        <!-- Card 13 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Ravi Kumar</span>
+          </div>
+          <p class="testimonial-text">
+            "Thamar is a must-have for elder care. The app is simple, the volunteers are verified, and AI monitoring ensures complete security. Any issues are addressed instantly, which makes it highly trustworthy for families."
+          </p>
+        </div>
+
+        <!-- Card 14 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Ganesh Arul</span>
+          </div>
+          <p class="testimonial-text">
+            "I love Thamar! The automated safety checks, real-time monitoring, and volunteer verification make the platform extremely reliable. It gives my family confidence and my father feels cared for every day."
+          </p>
+        </div>
+
+        <!-- Card 15 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Senthil Kumar</span>
+          </div>
+          <p class="testimonial-text">
+            "Thamar combines technology and human touch perfectly. Every volunteer is verified, complaints are handled immediately, and AI ensures ongoing safety. It’s an excellent system that every family should use for elder care."
+          </p>
+        </div>
+
+      </div>
+
+      <!-- SET 2 (DUPLICATE OF SET 1 – REQUIRED FOR LOOP) -->
+      <div class="testimonial-set">
+
+        <!-- Card 1 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Arun Kumar</span>
+          </div>
+          <p class="testimonial-text">
+            "Thamar has completely changed how we look after my father. The volunteers are verified, and the real-time monitoring makes sure he is always safe. The transparency gives our family complete peace of mind. Highly recommended for anyone seeking elder care assistance in a safe and reliable way."
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Karthik Ramesh</span>
+          </div>
+          <p class="testimonial-text">
+            "The AI-powered features of Thamar make elder care effortless. From automatic risk flagging to check-in tracking, I feel confident leaving my mother in their care. The volunteer profiles are verified, and I can always see activity logs. This system makes us feel secure and well-informed at all times."
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Vikram Selvan</span>
+          </div>
+          <p class="testimonial-text">
+            "I am very impressed by Thamar’s complaint-triggered suspension feature. Any issue with volunteers is immediately addressed, which gives us confidence. The UI is simple, and the timeline of volunteer activity is very clear. It truly brings safety and convenience to elder care in a single platform."
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Mani Prakash</span>
+          </div>
+          <p class="testimonial-text">
+            "My parents love using Thamar! The verified volunteers, location tracking, and real-time monitoring all make the experience safe and reassuring. The AI automatically flags potential risks, which shows the system is very intelligent and proactive. It’s perfect for families who care about elder safety."
+          </p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Pranav Kumar</span>
+          </div>
+          <p class="testimonial-text">
+            "Thamar is an outstanding platform. The AI-assisted volunteer matching ensures my father has trustworthy caregivers. I particularly like the low trust-score alerts and the check-in/check-out tracking. It’s easy to use, reliable, and gives us peace of mind every day."
+          </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Ramesh Kumar</span>
+          </div>
+          <p class="testimonial-text">
+            "We have tried multiple elder care apps, but Thamar stands out with its safety features. The AI identifies any suspicious activity immediately, and the verified volunteer system works flawlessly. It has completely changed the way we monitor and support our elderly family members."
+          </p>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Suresh Selvan</span>
+          </div>
+          <p class="testimonial-text">
+            "Thamar provides complete confidence for families. The timeline view, complaint management, and real-time monitoring make it easy to track volunteer activity. My mother feels cared for, and I know that the system automatically flags any irregularities. Highly reliable and safe."
+          </p>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Arvind Kumar</span>
+          </div>
+          <p class="testimonial-text">
+            "I am impressed by how Thamar balances technology with human care. The volunteers are thoroughly verified, and the system ensures safety through continuous monitoring. Any complaint triggers immediate action. We feel completely secure and supported."
+          </p>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Hari Prakash</span>
+          </div>
+          <p class="testimonial-text">
+            "Thamar makes elder care stress-free. The volunteer safety features, real-time logs, and AI risk detection are remarkable. My father enjoys the interaction with volunteers, and I love that everything is tracked securely and transparently."
+          </p>
+        </div>
+
+        <!-- Card 10 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Rajesh Kumar</span>
+          </div>
+          <p class="testimonial-text">
+            "The system is user-friendly and very safe. From verified ID checks to complaint-triggered suspension, Thamar covers all aspects of elder care. I highly recommend it to families who want peace of mind while ensuring their elders are cared for responsibly."
+          </p>
+        </div>
+
+        <!-- Card 11 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Kumar Arul</span>
+          </div>
+          <p class="testimonial-text">
+            "Thamar’s AI assistant is excellent. It continuously monitors volunteers and elders, and flags any risk instantly. The verified volunteer system and check-in tracking give us complete confidence. It’s the perfect solution for elder care."
+          </p>
+        </div>
+
+        <!-- Card 12 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Vimal Selvan</span>
+          </div>
+          <p class="testimonial-text">
+            "We feel safe and informed with Thamar. The volunteer tracking, timeline, and AI notifications are incredibly helpful. Our elders are happy, and we can rely on the system completely for their safety and wellbeing."
+          </p>
+        </div>
+
+        <!-- Card 13 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Ravi Kumar</span>
+          </div>
+          <p class="testimonial-text">
+            "Thamar is a must-have for elder care. The app is simple, the volunteers are verified, and AI monitoring ensures complete security. Any issues are addressed instantly, which makes it highly trustworthy for families."
+          </p>
+        </div>
+
+        <!-- Card 14 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Ganesh Arul</span>
+          </div>
+          <p class="testimonial-text">
+            "I love Thamar! The automated safety checks, real-time monitoring, and volunteer verification make the platform extremely reliable. It gives my family confidence and my father feels cared for every day."
+          </p>
+        </div>
+
+        <!-- Card 15 -->
+        <div class="testimonial-card">
+          <div class="card-header">
+            <div class="profile-img">
+              <img width="100%" src="https://img.icons8.com/fluency/96/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+            </div>
+            <span class="profile-name">Senthil Kumar</span>
+          </div>
+          <p class="testimonial-text">
+            "Thamar combines technology and human touch perfectly. Every volunteer is verified, complaints are handled immediately, and AI ensures ongoing safety. It’s an excellent system that every family should use for elder care."
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{%endblock%}
+
+

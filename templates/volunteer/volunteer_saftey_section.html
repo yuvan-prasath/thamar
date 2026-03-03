@@ -1,0 +1,109 @@
+{% load static %}
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'thamar/css/volunteer/volunteer_safety_section.css' %}">
+{% endblock %}
+
+<section class="care-overview">
+
+    <div class="overview-header">
+        <h2>Assignment & Safety Overview</h2>
+        <p>Your current elder assignment and safety status</p>
+    </div>
+
+    <div class="overview-grid">
+
+        <!-- Assigned Elder Card -->
+        <div class="card volunteer-card">
+
+            <div class="card-header">
+                <h3>Assigned Elder</h3>
+                <span class="status online">Active Case</span>
+            </div>
+
+            <div class="volunteer-main">
+                <h4>Mrs. Lakshmi Devi</h4>
+                <span class="trust-score">Care Priority: Moderate</span>
+            </div>
+
+            <div class="volunteer-details">
+                <div>✔ Medical Profile Available</div>
+                <div>✔ Emergency Contacts Verified</div>
+                <div>✔ 5 Visits Completed</div>
+                <div>✔ No Open Issues</div>
+            </div>
+
+            <div class="meta-info">
+                <div><strong>Last Visit:</strong> Today 9:15 AM</div>
+                <div><strong>Location Tracking:</strong> Enabled</div>
+            </div>
+
+            <button class="primary-btn">View Full Details</button>
+
+        </div>
+
+        <!-- Elder Risk Status Card -->
+        <div class="card risk-card">
+
+            <h3>Elder Risk Status</h3>
+
+            <div class="risk-scale-container">
+
+                <div class="risk-scale">
+                    <div class="risk-pointer" id="riskPointer">
+                        <span class="risk-label" id="riskLabel">Moderate</span>
+                        ▼
+                    </div>
+                </div>
+
+                <div class="risk-levels">
+                    <span>High</span>
+                    <span>Moderate</span>
+                    <span>Low</span>
+                </div>
+
+            </div>
+
+            <div class="risk-details">
+                <div><strong>Monitoring:</strong> Weekly Check-ins</div>
+                <div><strong>Recent Incidents:</strong> 1</div>
+                <div><strong>Medical Alerts:</strong> None</div>
+            </div>
+
+            <div class="risk-alert">
+                ⚠ Elder under moderate risk. Follow safety protocol.
+            </div>
+
+        </div>
+
+        <!-- Volunteer Action Card -->
+        <div class="card action-card">
+            <h3>Quick Actions</h3>
+
+            <button class="danger-btn">Trigger SOS Alert</button>
+            <button class="secondary-btn">Contact Support Team</button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+function setRiskLevel(level) {
+
+    const pointer = document.getElementById("riskPointer");
+    const label = document.getElementById("riskLabel");
+
+    const positions = {
+        0: { left: "85%", text: "Low" },
+        1: { left: "50%", text: "Moderate" },
+        2: { left: "15%", text: "High" }
+    };
+
+    pointer.style.left = positions[level].left;
+    label.innerText = positions[level].text;
+}
+
+/* Example Risk Level from System */
+setRiskLevel(1);  // 0=Low, 1=Moderate, 2=High
+</script>

@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.custom-navbar {
+    background-color: #1f3c88; /* deep blue */
+    padding: 12px 0;
+}
+::placeholder{
+    font-family: 'poppins';
+    color: white;
+    
+}
+*{
+  padding: 0;
+  margin: 0;
+}
+
+html,body{
+  margin: 0;
+  padding: 0;
+}
+/* Logo */
+.logo-text {
+    color: #ffffff;
+    font-weight: 700;
+    
+    font-size: 22px;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.logo-text:hover {
+    color: #ffffff;
+}
+
+/* Nav links */
+.nav-links .nav-link {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 17px;
+    font-family: 'poppins';
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-links .nav-link:hover {
+    color: #9effb8; /* soft green hover */
+}
+
+/* Login button */
+.login-btn {
+    background-color: #2ecc71;
+    color: #000000;
+    font-weight: 600;
+    padding: 8px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #27ae60;
+    color: #000000;
+}
+
+/* Navbar toggler icon color */
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* Mobile spacing */
+@media (max-width: 991px) {
+    .login-btn {
+        margin-top: 12px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links .nav-link {
+        padding: 10px 0;
+    }
+}
+.profile-wrapper {
+    position: relative;
+}
+
+.profile-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    background-color: #6c63ff;
+    color: white;
+    font-weight: 600;
+    font-family: 'Poppins';
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.profile-btn:hover {
+    background-color: #574fd6;
+}
+
+.profile-dropdown {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background-color: white;
+    min-width: 150px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.profile-dropdown a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    font-family: 'Poppins';
+    transition: 0.2s;
+}
+
+.profile-dropdown a:hover {
+    background-color: #f3f3f3;
+}
+
+
+
+.bg-purple {
+    background-color: #000; /* match your image purple */
+    margin: 0 !important;
+}
+footer {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+
+footer a:hover {
+    text-decoration: underline;
+}
+#findfooter{
+  text-decoration: none !important;
+  color: #000;
+  background-color: #6c63ff;
+  transition: 1s !important;
+}
+#findfooter:hover{
+  transform: scale(1.05) !important;
+  color: #6c63ff;
+  background-color: #000;
+  border: 2px solid #6c63ff;
+}
+footer h6 {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+footer hr {
+    opacity: 0.3;
+}
+footer hr {
+    margin-bottom: 0 !important;
+}
+footer .col-4 ul li a{
+  transition: 1s !important;
+}
+footer .col-md-3 a i{
+  transition: 1s;
+}
+
+footer .col-md-3 a i:hover{
+  color: #6c63ff;
+  font-size: 105%;
+}
+footer .col-4 ul li a:hover{
+font-size: 105%;
+color: #6c63ff !important;
+}
+footer .btn-light i {
+    font-size: 1.2rem;
+}
+
+
+
+.thamar-register-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 90px;
+    height: 100%;
+    
+    overflow: hidden;
+}
+
+.thamar-register-bg {
+    position: absolute;
+    inset: 0;
+   
+     z-index: 1;
+    transform: scale(1.1);
+}
+.thamar-bg-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.thamar-register-glass {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(4px);
+    background: rgba(0,0,0,0.60);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top Role Selector */
+.thamar-role-top {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.thamar-role-btn {
+    padding: 10px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+}
+
+.thamar-role-btn.active {
+    background: rgba(255,255,255,0.4);
+    border: 2px solid rgba(255,255,255,0.4);
+}
+
+/* Body Split */
+.thamar-register-body {
+    flex: 1;
+    display: flex;
+    padding: 30px 60px;
+}
+
+.thamar-register-form {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+}
+
+.thamar-register-col {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 30px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.35);
+}
+
+.thamar-register-col h4 {
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+/* Fields */
+.thamar-field {
+    margin-bottom: 12px;
+}
+
+.thamar-field input,
+.thamar-field select {
+    width: 100%;
+    padding: 11px 14px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.25);
+    color: #fff;
+}
+.thamar-field select option {
+    background: #111;          /* Dark background for options */
+    color: #fff;               /* White text */
+}
+
+/* Placeholder option (first option) */
+.thamar-field select option[value=""] {
+    color: #bbb;
+}
+
+.thamar-field input::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+.thamar-checkbox-group {
+    margin-bottom: 14px;
+    color: #fff;
+    font-size: 13px;
+}
+
+.thamar-checkbox-group label {
+    display: block;
+    margin-top: 6px;
+}
+
+.thamar-password-field {
+    position: relative;
+}
+
+.thamar-toggle-pass {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* Button */
+.thamar-register-btn {
+    width: 100%;
+    margin-top: 12px;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, #ff7aa2, #ff4d7e);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    .thamar-register-body,
+    .thamar-register-form {
+        flex-direction: column;
+        padding: 20px;
+    }
+}
+
+#checkboxoutline{
+    outline: 0;
+    border: 0;
+    background-color: #27ae60;
+}
+
+
+
+.thamar-terms-line {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #fff;
+}
+
+.thamar-terms-line a {
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Modal */
+.thamar-terms-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.thamar-terms-box {
+    width: 100%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 24px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+}
+
+.thamar-terms-box h4 {
+    margin-bottom: 12px;
+}
+
+.thamar-terms-content {
+    font-size: 13px;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+.thamar-terms-actions {
+    margin-top: 16px;
+    text-align: right;
+}
+
+.thamar-terms-actions button {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}

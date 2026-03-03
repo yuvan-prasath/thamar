@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>THAMAR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Redirect after splash -->
+    <meta http-equiv="refresh" content="9;url=/home/">
+
+    <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    /* Background Video */
+    .bg-video {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -3;
+    }
+
+    /* Fallback background image */
+    body {
+      background: url("{% static 'thamar/images/splashbg.jpg' %}") center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Glass blur overlay */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.35);
+      z-index: -2;
+    }
+
+    /* Splash container */
+    .splash-container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 80%;
+    }
+
+    .splash-container img {
+      width: 300px;
+      opacity: 0;
+      animation: fadeIn 0.8s forwards;
+      animation-delay: 0.5s;
+    }
+
+    .main-slogan {
+      font-size: 24px;
+      margin-top: 20px;
+      opacity: 0;
+      animation: slideUp 0.8s forwards;
+      animation-delay: 1.3s;
+    }
+
+    .moral-slogan {
+      font-size: 18px;
+      margin-top: 15px;
+      line-height: 1.4;
+      opacity: 0;
+      animation: fadeIn 0.8s forwards;
+      animation-delay: 2.1s;
+    }
+
+    .author {
+      font-size: 14px;
+      margin-top: 10px;
+      opacity: 0;
+      animation: slideUp 0.8s forwards;
+      animation-delay: 2.9s;
+    }
+
+    .slogan-meaning {
+      font-size: 13px;
+      margin-top: 8px;
+      font-style: italic;
+      opacity: 0;
+      animation: fadeIn 0.8s forwards;
+      animation-delay: 3.7s;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    </style>
+</head>
+
+<body>
+
+<!-- Splash Content -->
+<div class="splash-container">
+  <img src="{% static 'thamar/images/logo1.png' %}" alt="Thamar Logo">
+
+  <div class="main-slogan">Your Companion in Every Step.</div>
+
+  <div class="moral-slogan">
+    குறள் 443: அரியவற்றுள் எல்லாம் அரிதே பெரியாரைப் <br>
+    பேணித் <b>தமராக்</b> கொளல்.
+  </div>
+
+  <div class="author">— திருவள்ளுவர்</div>
+
+  <div class="slogan-meaning">
+    எளிமையான விளக்கம்: உலகிலேயே மிகவும் அரிய செயல் எதுவென்றால்,
+    அறிவுடைய பெரியவர்களைப் போற்றி, அவர்களைத் நமக்குத் துணையாகவும்
+    உறவாகவும் (தமராக்) ஆக்கிக் கொள்வதே ஆகும்.
+  </div>
+</div>
+
+</body>
+</html>

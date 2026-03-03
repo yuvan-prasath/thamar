@@ -1,0 +1,122 @@
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+from predict_trust import predict_trust_score
+from features import FEATURES
+from predict_trust import input_data
+from ml.volunteer_risk.burnout_churn import predict_combined_risk
+from ml.elders_risk.predict_risk import risk_predict
+score=predict_trust_score(input_data)
+def normalize(value, min_val, max_val):
+    if max_val == min_val:
+        return 0.0
+    value = max(min_val, min(value, max_val))
+    return (value - min_val) / (max_val - min_val)
+MATCHING_WEIGHTS = {
+    "trust_score": 0.45,    
+    "distance": 0.25,       
+    "availability": 0.15,   
+    "experience": 0.15       
+}
+def calculate_match_score(volunteer,elder):
+    
+    trust_score=predict_trust_score(input_data)
+    elder_risk=risk_predict    
+    trust_component = normalize(trust_score, 0, 100)
+    
+
+    risk = predict_combined_risk(volunteer)
+    churn_prob = risk["churn_probability"]
+    burnout_score = risk["burnout_score"]
+    availability_score = 1.0 if volunteer.get("availability", "available") == "available" else 0.5
+    rating_score = volunteer.get("avg_rating", 3.0) / 5.0  # scale 0-1
+    distance_component = 1 - normalize(volunteer["distance_km"], 0, 20)
+    experience_component = normalize(volunteer["completed_tasks"], 0, 200)
+    match_score = (
+        MATCHING_WEIGHTS["trust_score"] * trust_component +
+        MATCHING_WEIGHTS["distance"] * distance_component +
+        MATCHING_WEIGHTS["availability"] * availability_score +
+        MATCHING_WEIGHTS["experience"] * experience_component +
+        (1 - churn_prob) * 0.2 +
+        (1 - burnout_score) * 0.2 +
+        rating_score * 0.1
+    )
+    
+    print("MATCH SCORE : ",match_score)
+
+    return round(match_score, 3),elder_risk
+
+# ----------------------
+# Rank volunteers
+# ----------------------
+def rank_volunteers(volunteers: list, elder_request: dict = None) -> list:
+
+    ranked_list = []
+    for v in volunteers:
+        score = calculate_match_score(v, elder)
+        if risk_predict==2 and v["trust_score"]<80:
+            continue
+        ranked_list.append({
+            "volunteer_id": v["id"],
+            "match_score": score,
+            "trust_score": v["trust_score"]
+        })
+    ranked_list.sort(key=lambda x: x["match_score"], reverse=True)
+    return ranked_list
+
+    """ for v in volunteers:
+        v['match_score'] = calculate_match_score(v, elder_request)
+        v['risk'] = predict_combined_risk(v)  # store risk info
+
+    ranked = sorted(volunteers, key=lambda x: x['match_score'], reverse=True)
+    return ranked"""
+
+# ----------------------
+# Example usage
+# ----------------------
+if __name__ == "__main__":
+    volunteers = [
+        { "id":1,
+            "completed_tasks": 10,
+            "days_since_last_task": 2,
+            "avg_rating": 4.5,
+            "trust_score": 0.8,
+            "cancellations": 0,
+            "active_days": 25,
+            "weekly_hours": 12,
+            "consecutive_days": 3,
+            "night_shifts": 1,
+            "emergency_tasks": 1,
+            "rest_days": 2,
+            "distance_km":3,
+            "availability": "available"
+        },
+        { "id":2,
+            "completed_tasks": 3,
+            "days_since_last_task": 7,
+            "avg_rating": 3.5,
+            "trust_score": 0.6,
+            "cancellations": 2,
+            "active_days": 15,
+            "weekly_hours": 20,
+            "consecutive_days": 6,
+            "night_shifts": 2,
+            "emergency_tasks": 3,
+            "rest_days": 1,
+            "distance_km":2.5,
+            "availability": "busy"
+        }
+    ]
+    elder = {
+        "age": 85,
+        "chronic_disease": 1,
+        "living_alone": 1,
+        "mobility_issue": 1,
+        "recent_fall": 1,
+        "emergency_visits": 4
+    }
+    ranked_volunteers = rank_volunteers(volunteers, elder)
+    print("Ranked Volunteers:")
+    for r in ranked_volunteers:
+        print(r)

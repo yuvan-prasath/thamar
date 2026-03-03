@@ -1,0 +1,176 @@
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: #f4f6f9;
+}
+
+.care-overview {
+    padding: 40px 60px;
+}
+
+.overview-header h2 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.overview-header p {
+    margin-top: 6px;
+    color: #6b7280;
+}
+
+.overview-grid {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 0.8fr;
+    gap: 25px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+}
+
+/* Volunteer Card */
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status.online {
+    background: #e6f9f0;
+    color: #16a34a;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.volunteer-main h4 {
+    margin: 10px 0 4px 0;
+}
+
+.trust-score {
+    color: #4b5563;
+    font-size: 14px;
+}
+
+.volunteer-details {
+    margin: 15px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    font-size: 14px;
+    color: #374151;
+}
+
+.meta-info {
+    font-size: 14px;
+    color: #4b5563;
+    margin-bottom: 15px;
+}
+
+.primary-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+}
+
+/* Risk Card */
+
+.risk-scale-container {
+    margin: 25px 0;
+}
+
+.risk-scale {
+    position: relative;
+    height: 14px;
+    border-radius: 20px;
+    background: linear-gradient(to right,
+        #dc2626 0%,
+        #facc15 50%,
+        #16a34a 100%
+    );
+}
+
+.risk-pointer {
+    position: absolute;
+    top: -32px;
+    transform: translateX(-50%);
+    font-size: 18px;
+    text-align: center;
+}
+
+.risk-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.risk-levels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-top: 8px;
+    color: #6b7280;
+}
+
+.risk-details {
+    font-size: 14px;
+    color: #374151;
+    margin-bottom: 15px;
+}
+
+.risk-alert {
+    background: #fff7ed;
+    color: #b45309;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* Action Card */
+
+.action-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+
+.danger-btn {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.secondary-btn {
+    background: #6b7280;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Responsive */
+
+@media(max-width: 1100px) {
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,61 @@
+ {%load static%}
+ {%block extracss%}
+ <link rel="stylesheet" href="{%static 'thamar/css/elder/elderhome.css'%}?=v3">
+ {%endblock%}
+<section class="elder-dashboard py-5">
+  <div class="container">
+
+    <h2 class="mb-5">Welcome Back, {{ user.first_name }}</h2>
+
+    <div class="dashboard-grid">
+
+      <div class="card-box request">
+        <h5>Request Assistance</h5>
+        <p>Book a trusted volunteer for support.</p>
+        <a href="{%url 'core:elder_request'%}" class="btn btn-primary-custom" >Request Now</a>
+      </div>
+
+      <div class="card-box active">
+        <h5>Active Volunteer</h5>
+        <p>Status: <span class="text-success">Checked-In</span></p>
+        <p>Trust Score: 92%</p>
+        <a href="" class="btn btn-outline-primary">Track</a>
+      </div>
+
+     <div class="card-box sos">
+  <div class="sos-header">
+    <h5>SOS Emergency</h5>
+    <p class="sos-sub">Immediate help if you feel unsafe.</p>
+  </div>
+
+  <div class="sos-body">
+    <div class="sos-icon">⚠</div>
+
+    <ul class="sos-features">
+      <li>Alerts nearby verified volunteers</li>
+      <li>Shares your live location</li>
+      <li>Notifies emergency contacts</li>
+    </ul>
+  </div>
+
+  <div class="sos-footer">
+    <a href="#" class="btn btn-light sos-btn">Trigger SOS <i class="fa fa-bell"></i></a>
+  </div>
+</div>
+
+      <div class="card-box history">
+        <h5>Past Assistance</h5>
+        <p>View previous visits and feedback.</p>
+        <a href="" class="btn btn-outline-secondary">View History</a>
+      </div>
+
+      <div class="card-box complaint">
+        <h5>Raise Complaint</h5>
+        <p>Report any issue immediately.</p>
+        <a href="" class="btn btn-warning">Report</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>

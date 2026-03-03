@@ -1,0 +1,68 @@
+{%load static%}
+ {%block extracss%}
+ <link rel="stylesheet" href="{%static 'thamar/css/volunteer/volunteer_home.css'%}">
+ {%endblock%}
+<section class="elder-dashboard py-5">
+  <div class="container">
+
+    <h2 class="mb-5">Welcome Back, {{ user.first_name }}</h2>
+
+    <div class="dashboard-grid">
+
+      <!-- Top Left -->
+      <div class="card-box request">
+        <h5>Available Help Requests</h5>
+        <p>Browse elders who need assistance near you.</p>
+        <a href="" class="btn btn-primary-custom">View Requests</a>
+      </div>
+
+      <!-- Top Middle -->
+      <div class="card-box active">
+        <h5>My Active Assignments</h5>
+        <p>Status: <span class="text-success">2 Ongoing Tasks</span></p>
+        <p>Today’s Check-ins Pending</p>
+        <a href="" class="btn btn-outline-primary">Manage Tasks</a>
+      </div>
+
+      <!-- Right Side Tall -->
+      <div class="card-box sos">
+        <div class="sos-header">
+          <h5>Safety & Support</h5>
+          <p class="sos-sub">Emergency tools while assisting elders.</p>
+        </div>
+
+        <div class="sos-body">
+          <div class="sos-icon">🛡</div>
+
+          <ul class="sos-features">
+            <li>One-tap SOS alert</li>
+            <li>Live location sharing</li>
+            <li>Emergency contact notification</li>
+          </ul>
+        </div>
+
+        <div class="sos-footer">
+          <a href="#" class="btn btn-light sos-btn">
+            Trigger Safety Alert <i class="fa fa-bell"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom Left -->
+      <div class="card-box history">
+        <h5>Volunteer History</h5>
+        <p>View completed visits and feedback received.</p>
+        <a href="" class="btn btn-outline-secondary">View History</a>
+      </div>
+
+      <!-- Bottom Middle -->
+      <div class="card-box complaint">
+        <h5>Report an Issue</h5>
+        <p>Report any safety or service concern immediately.</p>
+        <a href="" class="btn btn-warning">Report</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
