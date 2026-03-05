@@ -58,7 +58,7 @@ class ElderRequestAdmin(admin.ModelAdmin):
         ("Elder Information", {
             "fields": (
                 "elder",
-                "age",
+            
             )
         }),
 

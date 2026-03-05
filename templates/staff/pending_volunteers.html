@@ -1,0 +1,47 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pending Volunteers</title>
+    <link rel="stylesheet" href="{% load static %}{% static 'thamar/css/staff.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Pending Volunteer Verifications</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Experience Level</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for volunteer in volunteers %}
+            <tr>
+                <td>{{ volunteer.profile.user.username }}</td>
+                <td>{{ volunteer.profile.user.email }}</td>
+                <td>{{ volunteer.experience_level }}</td>
+                <td>
+                    <a href="{% url 'core:approve_volunteer' volunteer.id %}" class="btn approve">Approve</a>
+                    <a href="{% url 'core:reject_volunteer' volunteer.id %}" class="btn reject">Reject</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No pending volunteers.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'core:staff_dashboard' %}" class="back-link">← Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>
