@@ -1,0 +1,32 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Staff Dashboard</title>
+    <link rel="stylesheet" href="{% load static %}{% static 'thamar/css/staff.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Staff Dashboard</h1>
+
+    <div class="card-container">
+
+        <div class="card">
+            <h2>Pending Volunteer Verifications</h2>
+            <p class="count">{{ pending_volunteers }}</p>
+            <a href="{% url 'core:pending_volunteers' %}" class="btn">View Volunteers</a>
+        </div>
+
+        <div class="card">
+            <h2>Total Elder Requests</h2>
+            <p class="count">{{ total_requests }}</p>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

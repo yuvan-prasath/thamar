@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-
+from datetime import date
 
 
 class ElderRequest(models.Model):
@@ -17,26 +17,32 @@ class ElderRequest(models.Model):
         (1, "Yes"),
         (0, "No"),
     ]
+
     STATUS_CHOICES = [
-    ("pending", "Pending"),
-    ("assigned", "Volunteer Assigned"),
-    ("completed", "Completed"),
-]
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="pending")
+        ("pending", "Pending"),
+        ("assigned", "Volunteer Assigned"),
+        ("completed", "Completed"),
+    ]
+
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default="pending"
+    )
+
     elder = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="elder_requests"
     )
-    volunteer = models.ForeignKey(
-    settings.AUTH_USER_MODEL,
-    on_delete=models.SET_NULL,
-    null=True,
-    blank=True,
-    related_name="assigned_requests"
-    )
 
-    age = models.PositiveIntegerField()
+    volunteer = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="assigned_requests"
+    )
 
     purpose = models.CharField(
         max_length=20,
@@ -60,14 +66,9 @@ class ElderRequest(models.Model):
         choices=YES_NO_CHOICES
     )
 
-    emergency_visits = models.PositiveIntegerField(
-        default=0
-    )
+    emergency_visits = models.PositiveIntegerField(default=0)
 
-    risk_score = models.FloatField(
-        blank=True,
-        null=True
-    )
+    risk_score = models.FloatField(blank=True, null=True)
 
     risk_level = models.CharField(
         max_length=20,
@@ -75,13 +76,28 @@ class ElderRequest(models.Model):
         null=True
     )
 
-    created_at = models.DateTimeField(
-        auto_now_add=True
-    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
-    updated_at = models.DateTimeField(
-        auto_now=True
-    )
+    # =========================
+    # DYNAMIC AGE PROPERTY
+    # =========================
+
+    @property
+    def age(self):
+        """
+        Calculate age dynamically from Profile.dob
+        """
+        try:
+            dob = self.elder.profile.dob
+            if dob:
+                today = date.today()
+                return (
+                    today.year - dob.year
+                    - ((today.month, today.day) < (dob.month, dob.day))
+                )
+        except:
+            return None
 
     def __str__(self):
         return f"{self.elder.username} - {self.purpose} - {self.created_at}"

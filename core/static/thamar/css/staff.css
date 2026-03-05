@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 85%;
+    margin: 40px auto;
+}
+
+h1 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.card-container {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    flex: 1;
+}
+
+.count {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 14px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    color: white;
+}
+
+.btn {
+    background-color: #007bff;
+}
+
+.btn.approve {
+    background-color: #28a745;
+}
+
+.btn.reject {
+    background-color: #dc3545;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+table th, table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+table th {
+    background-color: #f1f1f1;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007bff;
+}
