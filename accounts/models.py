@@ -45,13 +45,12 @@ class Elder(models.Model):
 class Volunteer(models.Model):
 
     STATUS_CHOICES = [
-    ('Pending', 'Pending'),
-    ('Approved', 'Approved'),
-    ('Rejected', 'Rejected'),
+('pending','Pending'),
+('link_sent','Verification Link Sent'),
+('submitted','Documents Submitted'),
+('approved','Approved'),
+('rejected','Rejected'),
 ]
-
-    
-
     profile = models.OneToOneField(Profile, on_delete=models.CASCADE, related_name="volunteer")
 
     skills = models.JSONField(null=True, blank=True)
@@ -59,15 +58,32 @@ class Volunteer(models.Model):
     experience_level = models.CharField(max_length=50)
 
     # 🔹 Verification Fields
-    id_proof = models.FileField(upload_to='verification_docs/', null=True, blank=True)
+    verification_token = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True
+    )
+
+    id_proof = models.FileField(upload_to="volunteer_ids/", blank=True, null=True)
+    address_proof = models.FileField(upload_to="volunteer_address/", blank=True, null=True)
  
+    otp = models.CharField(max_length=6, blank=True, null=True)
+    otp_created_at = models.DateTimeField(blank=True, null=True)
+
+    def otp_is_valid(self):
+        if self.otp_created_at:
+            return (timezone.now() - self.otp_created_at).seconds < 300
+        return False
+
 
     verification_status = models.CharField(
     max_length=20,
     choices=STATUS_CHOICES,
-    default='Pending'
+    default='pending'
 )
-    verification_token = models.UUIDField(default=uuid.uuid4, editable=False)
+    
+
+    
     verified_by = models.ForeignKey(
         User,
         on_delete=models.SET_NULL,

@@ -11,5 +11,6 @@ urlpatterns = [
     path('staff/volunteers/', views.pending_volunteers, name='pending_volunteers'),
     path('staff/volunteer/<int:pk>/approve/', views.approve_volunteer, name='approve_volunteer'),
     path('staff/volunteer/<int:pk>/reject/', views.reject_volunteer, name='reject_volunteer'),
-
+    path("staff/send-verification/<int:pk>/",views.send_verification_link,name="send_verification_link"),
+    path("verify-volunteer/<uuid:token>/",views.verify_volunteer,name="verify_volunteer"),
 ]

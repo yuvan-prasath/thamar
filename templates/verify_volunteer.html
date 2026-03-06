@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Volunteer Verification</title>
+</head>
+<body>
+
+<h2>Volunteer Verification</h2>
+
+<p>Please upload your ID proof to complete verification.</p>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <label>ID Proof</label>
+    <input type="file" name="id_proof" required>
+
+    <button type="submit">Submit Verification</button>
+
+</form>
+
+</body>
+</html>

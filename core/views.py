@@ -6,6 +6,8 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import ElderRequest
+from django.core.mail import send_mail
+from django.conf import settings
 from accounts.models import Volunteer
 
 # Create your views here.
@@ -51,27 +53,34 @@ def logout_view(request):
 def elder_request(request):
     return render(request,"elder/elder_request.html")
 
-
 @staff_member_required
 def staff_dashboard(request):
 
-    pending_volunteers = Volunteer.objects.filter(verification_status='Pending')
+    pending_count = Volunteer.objects.filter(
+        verification_status='pending'
+    ).count()
+
     total_requests = ElderRequest.objects.count()
 
     context = {
-        'pending_volunteers': pending_volunteers.count(),
+        'pending_volunteers': pending_count,
         'total_requests': total_requests,
     }
 
     return render(request, 'staff/dashboard.html', context)
 
+
 @staff_member_required
 def pending_volunteers(request):
-    volunteers = Volunteer.objects.filter(verification_status='Pending')
+
+    volunteers = Volunteer.objects.filter(
+        verification_status='pending'
+    )
 
     return render(request, 'staff/pending_volunteers.html', {
         'volunteers': volunteers
     })
+
 
 @staff_member_required
 def approve_volunteer(request, pk):
@@ -83,7 +92,8 @@ def approve_volunteer(request, pk):
     volunteer.verified_at = timezone.now()
     volunteer.save()
 
-    return redirect('pending_volunteers')
+    return redirect('core:pending_volunteers')   # if using app_name
+
 
 @staff_member_required
 def reject_volunteer(request, pk):
@@ -95,4 +105,53 @@ def reject_volunteer(request, pk):
     volunteer.verified_at = timezone.now()
     volunteer.save()
 
-    return redirect('pending_volunteers')
+    return redirect('core:pending_volunteers')   # if using app_name
+
+
+@staff_member_required
+def send_verification_link(request, pk):
+
+    volunteer = get_object_or_404(Volunteer, pk=pk)
+
+    verification_link = f"http://127.0.0.1:8000/verify-volunteer/{volunteer.verification_token}/"
+
+    send_mail(
+    subject="Thamar Volunteer Verification",
+    message=f"""
+Hello {volunteer.profile.user.username},
+
+Please complete your volunteer verification.
+
+Click the link below:
+{verification_link}
+
+Upload your ID proof to complete verification.
+
+Regards,
+Thamar Team
+""",
+    from_email=settings.DEFAULT_FROM_EMAIL,
+    recipient_list=[volunteer.profile.user.email],
+    fail_silently=False
+)
+
+    volunteer.verification_status = 'link_sent'
+    volunteer.save()
+    print("Sending verification email to:", volunteer.profile.user.email)
+    return redirect('core:pending_volunteers')
+
+def verify_volunteer(request, token):
+
+    volunteer = get_object_or_404(Volunteer, verification_token=token)
+
+    if request.method == "POST":
+
+        id_proof = request.FILES.get('id_proof')
+
+        volunteer.id_proof = id_proof
+        volunteer.verification_status = 'submitted'
+        volunteer.save()
+
+        return render(request, "verification_success.html")
+
+    return render(request, "verify_volunteer.html", {"volunteer": volunteer})

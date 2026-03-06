@@ -52,8 +52,10 @@ with open('volunteers_500.csv', newline='', encoding='utf-8') as f:
             skills=json.loads(row['skills']) if row.get('skills') else [],
             availability=json.loads(row['availability']) if row.get('availability') else [],
             experience_level=row['experience_level'],
-            is_verified=False,  # default
+            verification_status='pending',
             rating=0.0          # default
+
+            
         )
 
         print(f"Created volunteer: {row['username']}")
